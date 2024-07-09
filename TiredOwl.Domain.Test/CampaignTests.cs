@@ -1,4 +1,5 @@
 ﻿using Shouldly;
+using TiredOwl.Domain.Campaigns;
 using Xunit;
 
 namespace TiredOwl.Domain.Test;
@@ -25,4 +26,3 @@ public class CampaignTests
     }
 
 }
-
