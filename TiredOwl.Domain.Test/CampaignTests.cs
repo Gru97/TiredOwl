@@ -12,17 +12,31 @@ public class CampaignTests
         byte[] file = Enumerable.Repeat((byte)0x20, 100).ToArray();
 
         var campaign = Campaign.Create(Money.Create(100,MoneyUnit.Dollar),
-             new CampaignContent("text goes here"), 
+             new CampaignContent("text goes here", new CampaignImage(file)), 
             CostOption.PerClick, 
             new LimitlessCampaignStrategy()).WithTopic(Topic.Shopping).WithTopic(Topic.Cloths);
         
-        campaign.UploadImage(file);
 
         campaign.Topics.ShouldContain(Topic.Shopping);
         campaign.CostOption.ShouldBe(CostOption.PerClick);
         campaign.CampaignStrategy.ShouldBeOfType(typeof(LimitlessCampaignStrategy));
         //campaign.Content.ShouldBe(new CampaignContent("text goes here"));  //TODO?
-        campaign.Budget.ShouldBe(Money.Create(100, MoneyUnit.Dollar));
+        campaign.MaximumBudget.ShouldBe(Money.Create(100, MoneyUnit.Dollar));
     }
+    [Fact]
+    public void Should_Decrease_Budget()
+    {
+        byte[] file = Enumerable.Repeat((byte)0x20, 100).ToArray();
+
+        var campaign = Campaign.Create(Money.Create(100, MoneyUnit.Dollar),
+            new CampaignContent("text goes here", new CampaignImage(file)),
+            CostOption.PerClick,
+            new LimitlessCampaignStrategy()).WithTopic(Topic.Shopping).WithTopic(Topic.Cloths);
+
+        campaign.DecreaseBudget(Money.Create(10,MoneyUnit.Dollar));
+        campaign.RemainingBudget.ShouldBe(Money.Create(90, MoneyUnit.Dollar));
+        
+    }
+
 
 }

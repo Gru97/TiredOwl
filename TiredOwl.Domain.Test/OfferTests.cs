@@ -1,6 +1,5 @@
 ﻿using Shouldly;
-using TiredOwl.Domain.Campaigns;
-using TiredOwl.Domain.Offers;
+using TiredOwl.Domain.Channels;
 using Xunit;
 
 namespace TiredOwl.Domain.Test;

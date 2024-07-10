@@ -1,4 +1,4 @@
-﻿namespace TiredOwl.Domain.Campaigns;
+﻿namespace TiredOwl.Domain;
 
 public class Topic : EnumerableValueObject
 {

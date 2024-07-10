@@ -1,7 +1,5 @@
-﻿using TiredOwl.Domain.Campaigns;
-
-namespace TiredOwl.Domain.Offers;
-public class CostStrategy :ValueObject
+﻿namespace TiredOwl.Domain.Channels;
+public class CostStrategy : ValueObject
 {
     public Money Cost { get; set; }
     public CostOption CostOption { get; set; }
@@ -15,7 +13,7 @@ public class PerClickStrategy : CostStrategy
 {
     public PerClickStrategy(Money cost)
     {
-        CostOption=CostOption.PerClick;
+        CostOption = CostOption.PerClick;
         Cost = cost;
     }
 }

@@ -12,7 +12,6 @@ public class EnumerableValueObject : ValueObject
     public int Value { get; }
     public string Name { get; }
 
-
     protected override IEnumerable<object> GetEqualityComponents()
     {
         yield return Value;
@@ -59,4 +58,7 @@ public abstract class ValueObject
 public class Entity<T>
 {
     public T Id { get; set; }
+}
+public interface IAggregateRoot
+{
 }

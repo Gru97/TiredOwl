@@ -8,7 +8,13 @@ public abstract class CampaignTimingStrategy : ValueObject
     public abstract DateTime? GetEndTime();
     protected override IEnumerable<object> GetEqualityComponents()
     {
-        throw new NotImplementedException();
+        throw new NotImplementedException(); //TODO?
+    }
+
+    public static LimitlessCampaignStrategy Create(DateTime? commandStartTime, DateTime? commandEndTime)
+    {
+        if (commandStartTime == default && commandEndTime == default) return new LimitlessCampaignStrategy();
+        return default; // TODO: other strategies
     }
 }
 public class LimitlessCampaignStrategy : CampaignTimingStrategy

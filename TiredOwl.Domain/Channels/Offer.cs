@@ -1,8 +1,6 @@
-﻿using TiredOwl.Domain.Campaigns;
+﻿namespace TiredOwl.Domain.Channels;
 
-namespace TiredOwl.Domain.Offers;
-
-public class Offer
+public class Offer : Entity<Guid>
 {
     public TimeRange TimeRange { get; private set; }
     public Guid ChannelId { get; private set; }

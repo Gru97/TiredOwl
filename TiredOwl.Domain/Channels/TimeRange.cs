@@ -1,4 +1,4 @@
-﻿namespace TiredOwl.Domain.Offers;
+﻿namespace TiredOwl.Domain.Channels;
 
 public class TimeRange : ValueObject
 {
